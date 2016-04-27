@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="con" path="com.genuitec.runtime.library/com.genuitec.generic_6.0">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.web"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="com.genuitec.runtime.library/com.genuitec.struts_2.1">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="WEB-INF/lib"/>
+			<attribute name="owner.project.facets" value="web.struts2"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="com.genuitec.runtime.library/com.genuitec.hibernate_4.1">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="WEB-INF/lib"/>
+			<attribute name="owner.project.facets" value="me.hibernate"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="com.genuitec.runtime.library/com.genuitec.jstl_1.2.1">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="WEB-INF/lib"/>
+			<attribute name="owner.project.facets" value="jst.web.jstl"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="com.genuitec.runtime.library/com.genuitec.spring_3.1">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="WEB-INF/lib"/>
+			<attribute name="owner.project.facets" value="me.spring"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/zwx/Desktop/external JARS/httppost和httpget需要的jar包/httpcore-4.1.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/zwx/Desktop/external JARS/json/commons-beanutils-1.8.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/zwx/Desktop/external JARS/json/commons-collections.jar"/>
+	<classpathentry kind="lib" path="C:/Users/zwx/Desktop/external JARS/json/commons-lang.jar"/>
+	<classpathentry kind="lib" path="C:/Users/zwx/Desktop/external JARS/json/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/zwx/Desktop/external JARS/json/ezmorph-1.0.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/zwx/Desktop/external JARS/json/json-lib-2.2.2-jdk15.jar"/>
+	<classpathentry kind="lib" path="C:/Users/zwx/Desktop/external JARS/json/morph-sandbox-1.1.1.jar"/>
+	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
+</classpath>
