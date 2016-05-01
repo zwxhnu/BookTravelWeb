@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant value="UTF-8" name="struts.i18n.encoding" />
+	<!-- class必须和applicationContext中的Action注入的id一样 -->
+	<package name="default" extends="struts-default,json-default"
+		namespace="/">
+		<action name="UserLogin" class="UserAction" method="Login">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="UserRegister" class="UserAction" method="Register">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+	</package>
+</struts>
