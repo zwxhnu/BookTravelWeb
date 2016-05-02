@@ -11,4 +11,4 @@ public interface UserDAO {
 	public boolean deleteUserById();
 
 	public UserLoginResult findUserByPhoneAndPass(String phone, String password);
-}
+}  
