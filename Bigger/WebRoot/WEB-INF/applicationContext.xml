@@ -31,6 +31,7 @@
 		<property name="mappingResources">
 			<list>
 				<value>com/app/bigger/user/model/User.hbm.xml</value>
+				<value>com/app/bigger/lable/model/Lable.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -60,4 +61,19 @@
 		<property name="userservice" ref="UserService" />
 	</bean>
 
+
+	<bean id="LableDAO" class="com.app.bigger.lable.daoimpl.LableDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="LableService" class="com.app.bigger.lable.serviceimpl.LableServiceImpl">
+		<property name="labledao" ref="LableDAO" />
+	</bean>
+
+	<bean id="LableAction" class="com.app.bigger.lable.action.LableAction"
+		scope="prototype">
+		<property name="lableservice" ref="LableService" />
+	</bean>
 </beans>

@@ -15,5 +15,12 @@
 				<param name="root">result</param>
 			</result>
 		</action>
+
+
+		<action name="QueryLables" class="LableAction" method="Queryall">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
 	</package>
 </struts>

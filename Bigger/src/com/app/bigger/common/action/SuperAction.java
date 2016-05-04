@@ -17,5 +17,4 @@ public class SuperAction extends ActionSupport {
 	public void setResult(Result result) {
 		this.result = result;
 	}
-
 }
