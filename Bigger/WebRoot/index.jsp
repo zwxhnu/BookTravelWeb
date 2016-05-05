@@ -23,7 +23,7 @@
 </head>
 
 <body>
-	<form method="post" action="Login.action">
+	<form method="post" action="UserLogin.action">
 		用户名：<input name="username" type="text" /><br> 密码：<input
 			name="password" type="password" /><br> <input name="Submits"
 			type="submit" value="登录" /> <input name="ReSet" type="reset"
