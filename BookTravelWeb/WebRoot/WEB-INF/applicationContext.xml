@@ -12,7 +12,6 @@
 		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/booktravel">
 		</property>
 		<property name="user" value="root"></property>
-		<!-- CBdogaxx19941218 -->
 		<property name="password" value="CBdogaxx19941218"></property>
 	</bean>
 

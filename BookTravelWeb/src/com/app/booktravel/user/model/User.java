@@ -1,5 +1,8 @@
 package com.app.booktravel.user.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * User entity. @author MyEclipse Persistence Tools
  */
@@ -9,11 +12,16 @@ public class User implements java.io.Serializable {
 	// Fields
 
 	private Integer userid;
-	private String userphone;
-	private String userpassword;
+	private Mybook mybook;
 	private String username;
-	private String userlog;
-	private String userfun;
+	private String password;
+	private String tel;
+	private String photo;
+	private Set topics = new HashSet(0);
+	private Set driftprocesses = new HashSet(0);
+	private Set comments = new HashSet(0);
+	private Set mybooks = new HashSet(0);
+	private Set bookreviews = new HashSet(0);
 
 	// Constructors
 
@@ -21,14 +29,27 @@ public class User implements java.io.Serializable {
 	public User() {
 	}
 
-	/** full constructor */
-	public User(String userphone, String userpassword, String username,
-			String userlog, String userfun) {
-		this.userphone = userphone;
-		this.userpassword = userpassword;
+	/** minimal constructor */
+	public User(String username, String password, String tel) {
 		this.username = username;
-		this.userlog = userlog;
-		this.userfun = userfun;
+		this.password = password;
+		this.tel = tel;
+	}
+
+	/** full constructor */
+	public User(Mybook mybook, String username, String password, String tel,
+			String photo, Set topics, Set driftprocesses, Set comments,
+			Set mybooks, Set bookreviews) {
+		this.mybook = mybook;
+		this.username = username;
+		this.password = password;
+		this.tel = tel;
+		this.photo = photo;
+		this.topics = topics;
+		this.driftprocesses = driftprocesses;
+		this.comments = comments;
+		this.mybooks = mybooks;
+		this.bookreviews = bookreviews;
 	}
 
 	// Property accessors
@@ -41,20 +62,12 @@ public class User implements java.io.Serializable {
 		this.userid = userid;
 	}
 
-	public String getUserphone() {
-		return this.userphone;
+	public Mybook getMybook() {
+		return this.mybook;
 	}
 
-	public void setUserphone(String userphone) {
-		this.userphone = userphone;
-	}
-
-	public String getUserpassword() {
-		return this.userpassword;
-	}
-
-	public void setUserpassword(String userpassword) {
-		this.userpassword = userpassword;
+	public void setMybook(Mybook mybook) {
+		this.mybook = mybook;
 	}
 
 	public String getUsername() {
@@ -65,27 +78,68 @@ public class User implements java.io.Serializable {
 		this.username = username;
 	}
 
-	public String getUserlog() {
-		return this.userlog;
+	public String getPassword() {
+		return this.password;
 	}
 
-	public void setUserlog(String userlog) {
-		this.userlog = userlog;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
-	public String getUserfun() {
-		return this.userfun;
+	public String getTel() {
+		return this.tel;
 	}
 
-	public void setUserfun(String userfun) {
-		this.userfun = userfun;
+	public void setTel(String tel) {
+		this.tel = tel;
 	}
 
-	@Override
-	public String toString() {
-		return "User [userid=" + userid + ", userphone=" + userphone
-				+ ", userpassword=" + userpassword + ", username=" + username
-				+ ", userlog=" + userlog + ", userfun=" + userfun + "]";
+	public String getPhoto() {
+		return this.photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
+	public Set getTopics() {
+		return this.topics;
+	}
+
+	public void setTopics(Set topics) {
+		this.topics = topics;
+	}
+
+	public Set getDriftprocesses() {
+		return this.driftprocesses;
+	}
+
+	public void setDriftprocesses(Set driftprocesses) {
+		this.driftprocesses = driftprocesses;
+	}
+
+	public Set getComments() {
+		return this.comments;
+	}
+
+	public void setComments(Set comments) {
+		this.comments = comments;
+	}
+
+	public Set getMybooks() {
+		return this.mybooks;
+	}
+
+	public void setMybooks(Set mybooks) {
+		this.mybooks = mybooks;
+	}
+
+	public Set getBookreviews() {
+		return this.bookreviews;
+	}
+
+	public void setBookreviews(Set bookreviews) {
+		this.bookreviews = bookreviews;
 	}
 
 }

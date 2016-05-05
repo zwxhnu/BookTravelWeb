@@ -53,8 +53,8 @@ public class UserAction extends SuperAction {
 		String password = request.getParameter("userpassword");
 		User user = new User();
 		user.setUsername(username);
-		user.setUserphone(phone);
-		user.setUserpassword(password);
+		user.setTel(phone);
+		user.setPassword(password);
 		result = new Result();
 		if (userservice.findUserByPhone(phone) != null) {
 			System.out.println("手机账号已存在！注册失败");

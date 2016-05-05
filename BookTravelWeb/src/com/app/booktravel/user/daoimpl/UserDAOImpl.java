@@ -21,7 +21,7 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
 	public User findUserByPhone(String phone) {
 		// TODO Auto-generated method stub
 		List<User> list = (List<User>) getHibernateTemplate().find(
-				"from User where userphone=?", phone);
+				"from User where tel=?", phone);
 		if (list.size() == 0)
 			return null;
 		return list.get(0);
@@ -38,8 +38,7 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
 		// TODO Auto-generated method stub
 		UserLoginResult result = new UserLoginResult();
 		List<User> list = (List<User>) getHibernateTemplate().find(
-				"from User where userphone=? and userpassword=?", phone,
-				password);
+				"from User where tel=? and password=?", phone, password);
 		if (list.size() == 0)
 			return result;
 		result.setUser(list.get(0));
