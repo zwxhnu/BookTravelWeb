@@ -2,7 +2,6 @@ package com.application.booktravel.activity;
 
 import com.application.booktravel.fragment.ContactsFragment;
 import com.application.booktravel.fragment.MessageFragment;
-import com.application.booktravel.fragment.NewsFragment;
 import com.application.booktravel.fragment.SettingFragment;
 import com.example.booktravel.R;
 
@@ -38,11 +37,6 @@ public class FragmentMainActivity extends Activity implements OnClickListener {
 	private ContactsFragment contactsFragment;
 
 	/**
-	 * 用于展示动态的Fragment
-	 */
-	private NewsFragment newsFragment;
-
-	/**
 	 * 用于展示设置的Fragment
 	 */
 	private SettingFragment settingFragment;
@@ -56,11 +50,6 @@ public class FragmentMainActivity extends Activity implements OnClickListener {
 	 * 联系人界面布局
 	 */
 	private View contactsLayout;
-
-	/**
-	 * 动态界面布局
-	 */
-	private View newsLayout;
 
 	/**
 	 * 设置界面布局
@@ -78,11 +67,6 @@ public class FragmentMainActivity extends Activity implements OnClickListener {
 	private ImageView contactsImage;
 
 	/**
-	 * 在Tab布局上显示动态图标的控件
-	 */
-	private ImageView newsImage;
-
-	/**
 	 * 在Tab布局上显示设置图标的控件
 	 */
 	private ImageView settingImage;
@@ -96,11 +80,6 @@ public class FragmentMainActivity extends Activity implements OnClickListener {
 	 * 在Tab布局上显示联系人标题的控件
 	 */
 	private TextView contactsText;
-
-	/**
-	 * 在Tab布局上显示动态标题的控件
-	 */
-	private TextView newsText;
 
 	/**
 	 * 在Tab布局上显示设置标题的控件
@@ -168,16 +147,6 @@ public class FragmentMainActivity extends Activity implements OnClickListener {
 			}
 			break;
 		case 2:
-			newsImage.setImageResource(R.drawable.news_selected);
-			newsText.setTextColor(Color.WHITE);
-			if (newsFragment == null) {
-				newsFragment = new NewsFragment();
-				transaction.add(R.id.content, newsFragment);
-			} else {
-				transaction.show(newsFragment);
-			}
-			break;
-		case 3:
 			settingImage.setImageResource(R.drawable.setting_selected);
 			settingText.setTextColor(Color.WHITE);
 			if (settingFragment == null) {
@@ -204,9 +173,6 @@ public class FragmentMainActivity extends Activity implements OnClickListener {
 		if (contactsFragment != null) {
 			transaction.hide(contactsFragment);
 		}
-		if (newsFragment != null) {
-			transaction.hide(newsFragment);
-		}
 		if (settingFragment != null) {
 			transaction.hide(settingFragment);
 		}
@@ -220,8 +186,6 @@ public class FragmentMainActivity extends Activity implements OnClickListener {
 		messageText.setTextColor(Color.parseColor("#82858b"));
 		contactsImage.setImageResource(R.drawable.contacts_unselected);
 		contactsText.setTextColor(Color.parseColor("#82858b"));
-		newsImage.setImageResource(R.drawable.news_unselected);
-		newsText.setTextColor(Color.parseColor("#82858b"));
 		settingImage.setImageResource(R.drawable.setting_unselected);
 		settingText.setTextColor(Color.parseColor("#82858b"));
 	}
@@ -235,11 +199,8 @@ public class FragmentMainActivity extends Activity implements OnClickListener {
 		case R.id.contacts_layout:
 			setTabSelection(1);
 			break;
-		case R.id.news_layout:
-			setTabSelection(2);
-			break;
 		case R.id.setting_layout:
-			setTabSelection(3);
+			setTabSelection(2);
 			break;
 		}
 	}
@@ -250,19 +211,15 @@ public class FragmentMainActivity extends Activity implements OnClickListener {
 	private void initViews() {
 		messageLayout = findViewById(R.id.message_layout);
 		contactsLayout = findViewById(R.id.contacts_layout);
-		newsLayout = findViewById(R.id.news_layout);
 		settingLayout = findViewById(R.id.setting_layout);
 		messageImage = (ImageView) findViewById(R.id.message_image);
 		contactsImage = (ImageView) findViewById(R.id.contacts_image);
-		newsImage = (ImageView) findViewById(R.id.news_image);
 		settingImage = (ImageView) findViewById(R.id.setting_image);
 		messageText = (TextView) findViewById(R.id.message_text);
 		contactsText = (TextView) findViewById(R.id.contacts_text);
-		newsText = (TextView) findViewById(R.id.news_text);
 		settingText = (TextView) findViewById(R.id.setting_text);
 		messageLayout.setOnClickListener(this);
 		contactsLayout.setOnClickListener(this);
-		newsLayout.setOnClickListener(this);
 		settingLayout.setOnClickListener(this);
 	}
 }

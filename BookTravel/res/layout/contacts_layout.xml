@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:padding="10dp"
-            android:text="这是地图"
+            android:text="这是话题圈"
             android:textSize="20sp" />
     </LinearLayout>
 
