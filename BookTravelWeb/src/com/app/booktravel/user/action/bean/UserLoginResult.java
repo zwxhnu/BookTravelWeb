@@ -26,4 +26,8 @@ public class UserLoginResult extends Result {
 		super.setCode(code);
 	}
 
+	@Override
+	public String toString() {
+		return "UserLoginResult [user=" + user + "]";
+	}
 }

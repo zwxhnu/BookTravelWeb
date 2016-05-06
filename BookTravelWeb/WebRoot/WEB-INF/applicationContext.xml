@@ -30,6 +30,15 @@
 		<property name="mappingResources">
 			<list>
 				<value>com/app/booktravel/user/model/User.hbm.xml</value>
+				<value>com/app/booktravel/user/model/Topic.hbm.xml</value>
+				<value>com/app/booktravel/user/model/Mybook.hbm.xml</value>
+				<value>com/app/booktravel/user/model/Driftprocess.hbm.xml</value>
+				<value>com/app/booktravel/user/model/Driftpoint.hbm.xml</value>
+				<value>com/app/booktravel/user/model/Comment.hbm.xml</value>
+				<value>com/app/booktravel/user/model/Bookreview.hbm.xml</value>
+				<value>com/app/booktravel/user/model/Book.hbm.xml</value>
+				<value>com/app/booktravel/user/model/Admin.hbm.xml</value>
+				<value>com/app/booktravel/user/model/Activity.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -59,4 +68,175 @@
 		<property name="userservice" ref="UserService" />
 	</bean>
 
+	<!-- DAO注入sessionFactory -->
+	<bean id="ActivityDAO" class="com.app.booktravel.user.daoimpl.ActivityDAOImpl">
+		<!-- 注入持久化操作所需的SessionFactory -->
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!--service注入dao id为下面的ref class为 service实现类 name="service实现类中声明的dao" -->
+	<bean id="ActivityService" class="com.app.booktravel.user.serviceimpl.ActivityServiceImpl">
+		<property name="activitydao" ref="ActivityDAO" />
+	</bean>
+
+	<!-- Action注入 service id="" 注入 class="action路径" name="loginservice"与LoginAction中声明的要保持一致 
+		ref随便取 -->
+	<bean id="ActivityAction" class="com.app.booktravel.user.action.ActivityAction"
+		scope="prototype">
+		<property name="activityservice" ref="ActivityService" />
+	</bean>
+
+
+	<!-- DAO注入sessionFactory -->
+	<bean id="AdminDAO" class="com.app.booktravel.user.daoimpl.AdminDAOImpl">
+		<!-- 注入持久化操作所需的SessionFactory -->
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!--service注入dao id为下面的ref class为 service实现类 name="service实现类中声明的dao" -->
+	<bean id="AdminService" class="com.app.booktravel.user.serviceimpl.AdminServiceImpl">
+		<property name="admindao" ref="AdminDAO" />
+	</bean>
+
+	<!-- Action注入 service id="" 注入 class="action路径" name="loginservice"与LoginAction中声明的要保持一致 
+		ref随便取 -->
+	<bean id="AdminAction" class="com.app.booktravel.user.action.AdminAction"
+		scope="prototype">
+		<property name="adminservice" ref="AdminService" />
+	</bean>
+
+
+	<!-- DAO注入sessionFactory -->
+	<bean id="BookDAO" class="com.app.booktravel.user.daoimpl.BookDAOImpl">
+		<!-- 注入持久化操作所需的SessionFactory -->
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!--service注入dao id为下面的ref class为 service实现类 name="service实现类中声明的dao" -->
+	<bean id="BookService" class="com.app.booktravel.user.serviceimpl.BookServiceImpl">
+		<property name="bookdao" ref="BookDAO" />
+	</bean>
+
+	<!-- Action注入 service id="" 注入 class="action路径" name="loginservice"与LoginAction中声明的要保持一致 
+		ref随便取 -->
+	<bean id="BookAction" class="com.app.booktravel.user.action.BookAction"
+		scope="prototype">
+		<property name="bookservice" ref="BookService" />
+	</bean>
+
+
+	<!-- DAO注入sessionFactory -->
+	<bean id="BookreviewDAO" class="com.app.booktravel.user.daoimpl.BookreviewDAOImpl">
+		<!-- 注入持久化操作所需的SessionFactory -->
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!--service注入dao id为下面的ref class为 service实现类 name="service实现类中声明的dao" -->
+	<bean id="BookreviewService"
+		class="com.app.booktravel.user.serviceimpl.BookreviewServiceImpl">
+		<property name="bookreviewdao" ref="BookreviewDAO" />
+	</bean>
+
+	<!-- Action注入 service id="" 注入 class="action路径" name="loginservice"与LoginAction中声明的要保持一致 
+		ref随便取 -->
+	<bean id="BookreviewAction" class="com.app.booktravel.user.action.BookreviewAction"
+		scope="prototype">
+		<property name="bookreviewservice" ref="BookreviewService" />
+	</bean>
+
+
+	<!-- DAO注入sessionFactory -->
+	<bean id="CommentDAO" class="com.app.booktravel.user.daoimpl.CommentDAOImpl">
+		<!-- 注入持久化操作所需的SessionFactory -->
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!--service注入dao id为下面的ref class为 service实现类 name="service实现类中声明的dao" -->
+	<bean id="CommentService" class="com.app.booktravel.user.serviceimpl.CommentServiceImpl">
+		<property name="commentdao" ref="CommentDAO" />
+	</bean>
+
+	<!-- Action注入 service id="" 注入 class="action路径" name="loginservice"与LoginAction中声明的要保持一致 
+		ref随便取 -->
+	<bean id="CommentAction" class="com.app.booktravel.user.action.CommentAction"
+		scope="prototype">
+		<property name="commentservice" ref="CommentService" />
+	</bean>
+
+
+	<!-- DAO注入sessionFactory -->
+	<bean id="DriftpointDAO" class="com.app.booktravel.user.daoimpl.DriftpointDAOImpl">
+		<!-- 注入持久化操作所需的SessionFactory -->
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!--service注入dao id为下面的ref class为 service实现类 name="service实现类中声明的dao" -->
+	<bean id="DriftpointService"
+		class="com.app.booktravel.user.serviceimpl.DriftpointServiceImpl">
+		<property name="driftpointdao" ref="DriftpointDAO" />
+	</bean>
+
+	<!-- Action注入 service id="" 注入 class="action路径" name="loginservice"与LoginAction中声明的要保持一致 
+		ref随便取 -->
+	<bean id="DriftpointAction" class="com.app.booktravel.user.action.DriftpointAction"
+		scope="prototype">
+		<property name="driftpointservice" ref="DriftpointService" />
+	</bean>
+
+
+	<!-- DAO注入sessionFactory -->
+	<bean id="DriftprocessDAO" class="com.app.booktravel.user.daoimpl.DriftprocessDAOImpl">
+		<!-- 注入持久化操作所需的SessionFactory -->
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!--service注入dao id为下面的ref class为 service实现类 name="service实现类中声明的dao" -->
+	<bean id="DriftprocessService"
+		class="com.app.booktravel.user.serviceimpl.DriftprocessServiceImpl">
+		<property name="driftprocessdao" ref="DriftprocessDAO" />
+	</bean>
+
+	<!-- Action注入 service id="" 注入 class="action路径" name="loginservice"与LoginAction中声明的要保持一致 
+		ref随便取 -->
+	<bean id="DriftprocessAction" class="com.app.booktravel.user.action.DriftprocessAction"
+		scope="prototype">
+		<property name="driftprocessservice" ref="DriftprocessService" />
+	</bean>
+
+
+	<!-- DAO注入sessionFactory -->
+	<bean id="MybookDAO" class="com.app.booktravel.user.daoimpl.MybookDAOImpl">
+		<!-- 注入持久化操作所需的SessionFactory -->
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!--service注入dao id为下面的ref class为 service实现类 name="service实现类中声明的dao" -->
+	<bean id="MybookService" class="com.app.booktravel.user.serviceimpl.MybookServiceImpl">
+		<property name="mybookdao" ref="MybookDAO" />
+	</bean>
+
+	<!-- Action注入 service id="" 注入 class="action路径" name="loginservice"与LoginAction中声明的要保持一致 
+		ref随便取 -->
+	<bean id="MybookAction" class="com.app.booktravel.user.action.MybookAction"
+		scope="prototype">
+		<property name="mybookservice" ref="MybookService" />
+	</bean>
+
+	<!-- DAO注入sessionFactory -->
+	<bean id="TopicDAO" class="com.app.booktravel.user.daoimpl.TopicDAOImpl">
+		<!-- 注入持久化操作所需的SessionFactory -->
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!--service注入dao id为下面的ref class为 service实现类 name="service实现类中声明的dao" -->
+	<bean id="TopicService" class="com.app.booktravel.user.serviceimpl.TopicServiceImpl">
+		<property name="topicdao" ref="TopicDAO" />
+	</bean>
+
+	<!-- Action注入 service id="" 注入 class="action路径" name="loginservice"与LoginAction中声明的要保持一致 
+		ref随便取 -->
+	<bean id="TopicAction" class="com.app.booktravel.user.action.TopicAction"
+		scope="prototype">
+		<property name="topicservice" ref="TopicService" />
+	</bean>
 </beans>

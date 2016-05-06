@@ -42,6 +42,7 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
 		if (list.size() == 0)
 			return result;
 		result.setUser(list.get(0));
+		System.out.println(result);
 		return result;
 	}
 

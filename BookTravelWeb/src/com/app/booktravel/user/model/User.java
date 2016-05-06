@@ -52,6 +52,15 @@ public class User implements java.io.Serializable {
 		this.bookreviews = bookreviews;
 	}
 
+	public User(Mybook mybook, String username, String password, String tel,
+			String photo) {
+		this.mybook = mybook;
+		this.username = username;
+		this.password = password;
+		this.tel = tel;
+		this.photo = photo;
+	}
+
 	// Property accessors
 
 	public Integer getUserid() {
@@ -140,6 +149,16 @@ public class User implements java.io.Serializable {
 
 	public void setBookreviews(Set bookreviews) {
 		this.bookreviews = bookreviews;
+	}
+
+	@Override
+	public String toString() {
+		return "User [userid=" + userid + ", mybook=" + mybook + ", username="
+				+ username + ", password=" + password + ", tel=" + tel
+				+ ", photo=" + photo + ", topics=" + topics
+				+ ", driftprocesses=" + driftprocesses + ", comments="
+				+ comments + ", mybooks=" + mybooks + ", bookreviews="
+				+ bookreviews + "]";
 	}
 
 }
