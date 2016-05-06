@@ -12,31 +12,22 @@ public class SharePreferenceUtil {
 		editor = sp.edit();
 	}
 
-	public void setFun(String userfun) {
-		editor.putString("userfun", userfun);
+	public void setTel(String tel) {
+		editor.putString("tel", tel);
 		editor.commit();
 	}
 
-	public String getFun() {
-		return sp.getString("userfun", "");
+	public String getTel() {
+		return sp.getString("tel", "");
 	}
 
-	public void setPhone(String userphone) {
-		editor.putString("userphone", userphone);
+	public void setPhoto(String photo) {
+		editor.putString("photo", photo);
 		editor.commit();
 	}
 
-	public String getPhone() {
-		return sp.getString("userphone", "");
-	}
-
-	public void setLog(String userlog) {
-		editor.putString("userlog", userlog);
-		editor.commit();
-	}
-
-	public String getLog() {
-		return sp.getString("userlog", "");
+	public String getPhoto() {
+		return sp.getString("photo", "");
 	}
 
 	public void setPasswd(String passwd) {

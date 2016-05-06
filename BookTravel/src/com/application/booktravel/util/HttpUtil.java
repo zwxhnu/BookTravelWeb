@@ -29,8 +29,8 @@ public class HttpUtil {
 	public static void login(final Context mcontext, final Dialog mdialog, final User user) {
 		String url = Constants.URL + "UserLogin.action";
 		AjaxParams params = new AjaxParams();
-		params.put("userphone", user.getUserphone());
-		params.put("password", user.getUserpassword());
+		params.put("userphone", user.getTel());
+		params.put("password", user.getPassword());
 		FinalHttp fh = new FinalHttp();
 		fh.post(url, params, new AjaxCallBack<String>() {
 			@Override
@@ -49,12 +49,11 @@ public class HttpUtil {
 						SharePreferenceUtil share = new SharePreferenceUtil(mcontext, Constants.SAVE_USER);
 						share.setId(user.getString("userid"));
 						share.setName(user.getString("username"));
-						share.setPasswd(user.getString("userpassword"));
-						share.setLog(user.getString("userlog"));
-						share.setFun(user.getString("userfun"));
-						share.setPhone(user.getString("userphone"));
-						Toast.makeText(mcontext, share.getId() + "-" + share.getName() + "-" + share.getPhone() + "-"
-								+ share.getPasswd() + "-" + share.getFun() + "-" + share.getLog(), 0).show();
+						share.setPasswd(user.getString("password"));
+						share.setPhoto(user.getString("photo"));
+						share.setTel(user.getString("tel"));
+						Toast.makeText(mcontext, share.getId() + "-" + share.getName() + "-" + share.getTel() + "-"
+								+ share.getPasswd() + "-" + share.getPhoto(), 0).show();
 						Intent intent = new Intent(mcontext, FragmentMainActivity.class);
 						mcontext.startActivity(intent);
 					}
@@ -86,8 +85,8 @@ public class HttpUtil {
 	public synchronized static void register(final Context mcontext, final Dialog mDialog, final User user) {
 		String url = Constants.URL + "UserRegister.action";
 		AjaxParams params = new AjaxParams();
-		params.put("userphone", user.getUserphone());
-		params.put("userpassword", user.getUserpassword());
+		params.put("userphone", user.getTel());
+		params.put("userpassword", user.getPassword());
 		params.put("username", user.getUsername());
 		FinalHttp fh = new FinalHttp();
 		fh.post(url, params, new AjaxCallBack<String>() {

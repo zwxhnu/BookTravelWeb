@@ -41,8 +41,8 @@ public class RegisterActivity extends Activity {
 					showRequestDialog();
 					User user = new User();
 					user.setUsername(name);
-					user.setUserpassword(password);
-					user.setUserphone(phone);
+					user.setPassword(password);
+					user.setTel(phone);
 					HttpUtil.register(RegisterActivity.this, mDialog, user);
 				}
 			}

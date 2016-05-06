@@ -52,8 +52,8 @@ public class LoginActivity extends Activity {
 				} else {
 					showRequestDialog();
 					User user = new User();
-					user.setUserphone(userName.getText().toString().trim());
-					user.setUserpassword(userPassword.getText().toString().trim());
+					user.setTel(userName.getText().toString().trim());
+					user.setPassword(userPassword.getText().toString().trim());
 					HttpUtil.login(LoginActivity.this, mDialog, user);
 				}
 			}
@@ -75,7 +75,7 @@ public class LoginActivity extends Activity {
 		userPassword = (EditText) findViewById(R.id.userPassword);
 		login = (Button) findViewById(R.id.login);
 		register = (TextView) findViewById(R.id.register);
-		userName.setText(util.getPhone());
+		userName.setText(util.getTel());
 		userPassword.setText(util.getPasswd());
 		if (!isNetworkAvailable())
 			toast(this);
