@@ -32,6 +32,9 @@
 			<list>
 				<value>com/app/bigger/user/model/User.hbm.xml</value>
 				<value>com/app/bigger/lable/model/Lable.hbm.xml</value>
+				<value>com/app/bigger/topic/model/Topic.hbm.xml</value>
+				<value>com/app/bigger/topic/model/Topiccom.hbm.xml</value>
+				<value>com/app/bigger/mapped/model/TopicCom.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -48,12 +51,10 @@
 		<!-- 注入持久化操作所需的SessionFactory -->
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-
 	<!--service注入dao id为下面的ref class为 service实现类 name="service实现类中声明的dao" -->
 	<bean id="UserService" class="com.app.bigger.user.serviceimpl.UserServiceImpl">
 		<property name="userdao" ref="UserDAO" />
 	</bean>
-
 	<!-- Action注入 service id="" 注入 class="action路径" name="loginservice"与LoginAction中声明的要保持一致 
 		ref随便取 -->
 	<bean id="UserAction" class="com.app.bigger.user.action.UserLoginAction"
@@ -67,13 +68,53 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-
 	<bean id="LableService" class="com.app.bigger.lable.serviceimpl.LableServiceImpl">
 		<property name="labledao" ref="LableDAO" />
 	</bean>
-
 	<bean id="LableAction" class="com.app.bigger.lable.action.LableAction"
 		scope="prototype">
 		<property name="lableservice" ref="LableService" />
+	</bean>
+
+
+	<bean id="TopicDAO" class="com.app.bigger.topic.daoimpl.TopicDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TopicService" class="com.app.bigger.topic.serviceimpl.TopicServiceImpl">
+		<property name="topicdao" ref="TopicDAO" />
+	</bean>
+	<bean id="TopicAction" class="com.app.bigger.topic.action.TopicAction"
+		scope="prototype">
+		<property name="topicservice" ref="TopicService" />
+	</bean>
+
+
+	<bean id="TopiccomDAO" class="com.app.bigger.topic.daoimpl.TopiccomDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="TopiccomService" class="com.app.bigger.topic.serviceimpl.TopiccomServiceImpl">
+		<property name="topiccomdao" ref="TopiccomDAO" />
+	</bean>
+	<bean id="TopiccomAction" class="com.app.bigger.topic.action.TopiccomAction"
+		scope="prototype">
+		<property name="topiccomservice" ref="TopiccomService" />
+	</bean>
+
+
+	<bean id="Topic_comDAO" class="com.app.bigger.topic.daoimpl.Topic_comDAOImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="Topic_comService" class="com.app.bigger.topic.serviceimpl.Topic_comServiceImpl">
+		<property name="topic_comdao" ref="Topic_comDAO" />
+	</bean>
+	<bean id="Topic_comAction" class="com.app.bigger.topic.action.Topic_comAction"
+		scope="prototype">
+		<property name="topic_comservice" ref="Topic_comService" />
 	</bean>
 </beans>

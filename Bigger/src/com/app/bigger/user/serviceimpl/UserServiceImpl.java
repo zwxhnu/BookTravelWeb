@@ -1,5 +1,7 @@
 package com.app.bigger.user.serviceimpl;
 
+import java.util.List;
+
 import org.springframework.transaction.annotation.Transactional;
 
 import com.app.bigger.user.action.bean.UserLoginResult;
@@ -43,4 +45,15 @@ public class UserServiceImpl implements UserService {
 		return userdao.findUserByPhoneAndPass(phone, password);
 	}
 
+	@Override
+	public boolean addLable(String userphone, String userlable) {
+		// TODO Auto-generated method stub
+		return userdao.addLable(userphone, userlable);
+	}
+
+	@Override
+	public List<User> findUsersByKeyword(String keywords) {
+		// TODO Auto-generated method stub
+		return userdao.findUsersByKeyword(keywords);
+	}
 }

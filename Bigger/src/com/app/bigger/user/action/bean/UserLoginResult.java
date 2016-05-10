@@ -6,6 +6,14 @@ import com.app.bigger.user.model.User;
 public class UserLoginResult extends Result {
 	private User user;
 
+	public UserLoginResult() {
+
+	}
+
+	public UserLoginResult(User u) {
+		this.user = u;
+	}
+
 	public User getUser() {
 		return user;
 	}

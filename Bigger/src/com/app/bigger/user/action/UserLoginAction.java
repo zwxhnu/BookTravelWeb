@@ -1,5 +1,7 @@
 package com.app.bigger.user.action;
 
+import java.io.UnsupportedEncodingException;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts2.ServletActionContext;
@@ -57,7 +59,8 @@ public class UserLoginAction extends SuperAction {
 
 	public String Register() throws Exception {
 		HttpServletRequest request = ServletActionContext.getRequest();
-		String username = request.getParameter("username");
+		String username = new String(request.getParameter("username").getBytes(
+				"ISO8859-1"), "UTF-8");
 		String phone = request.getParameter("userphone");
 		String password = request.getParameter("userpassword");
 		User user = new User();
@@ -76,6 +79,51 @@ public class UserLoginAction extends SuperAction {
 		} else {
 			System.out.println("◊¢≤· ß∞‹");
 			result.setCode(500);
+			return SUCCESS;
+		}
+	}
+
+	public String addLable() {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		String phone = null;
+		String lable = null;
+		try {
+			phone = new String(request.getParameter("userphone").getBytes(
+					"ISO8859-1"), "UTF-8");
+			lable = new String(request.getParameter("userlable").getBytes(
+					"ISO8859-1"), "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(lable);
+		result = new Result();
+		if (userservice.findUserByPhone(phone) == null) {
+			result.setCode(100);
+			System.out.println("ÃÌº”±Í«© ß∞‹");
+			return SUCCESS;
+		} else if (userservice.addLable(phone, lable)) {
+			result.setCode(200);
+			System.out.println("ÃÌº”±Í«©≥…π¶");
+			return SUCCESS;
+		} else {
+			result.setCode(100);
+			System.out.println("ÃÌº”±Í«© ß∞‹");
+			return SUCCESS;
+		}
+	}
+
+	public String findByPhone() {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		String phone = request.getParameter("userphone");
+		User u = userservice.findUserByPhone(phone);
+		if (u == null) {
+			result.setCode(100);
+			System.out.println("≤È—Ø ß∞‹");
+			return SUCCESS;
+		} else {
+			result = new UserLoginResult(u);
+			result.setCode(200);
 			return SUCCESS;
 		}
 	}

@@ -2,6 +2,10 @@ package com.app.bigger.user.daoimpl;
 
 import java.util.List;
 
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.springframework.orm.hibernate4.HibernateCallback;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 
 import com.app.bigger.user.action.bean.UserLoginResult;
@@ -46,4 +50,36 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
 		return result;
 	}
 
+	@Override
+	public boolean addLable(final String userphone, final String userlable) {
+		final String updatesql = "update User set userlable=? where userphone=?";
+		// TODO Auto-generated method stub
+		try {
+			getHibernateTemplate().execute(new HibernateCallback() {
+				@Override
+				public Object doInHibernate(Session session)
+						throws HibernateException {
+					// TODO Auto-generated method stub
+					Query query = session.createQuery(updatesql);
+					query.setParameter(0, userlable);
+					query.setParameter(1, userphone);
+					return query.executeUpdate();
+				}
+			});
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	@Override
+	public List<User> findUsersByKeyword(String keywords) {
+		// TODO Auto-generated method stub
+		String querysql = "from User where username like ?";
+		List<User> list = (List) getHibernateTemplate().find(querysql,
+				"%" + keywords + "%");
+		return list;
+	}
 }

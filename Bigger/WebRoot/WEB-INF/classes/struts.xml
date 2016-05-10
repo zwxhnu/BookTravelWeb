@@ -5,6 +5,7 @@
 	<!-- class必须和applicationContext中的Action注入的id一样 -->
 	<package name="default" extends="struts-default,json-default"
 		namespace="/">
+		<!-- User -->
 		<action name="UserLogin" class="UserAction" method="Login">
 			<result type="json">
 				<param name="root">result</param>
@@ -15,9 +16,48 @@
 				<param name="root">result</param>
 			</result>
 		</action>
+		<action name="AddLable" class="UserAction" method="addLable">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="FindByPhone" class="UserAction" method="findByPhone">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
 
 
+		<!-- Lables -->
 		<action name="QueryLables" class="LableAction" method="Queryall">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+
+
+		<!-- Topics -->
+		<action name="QueryByKeyWords" class="TopicAction" method="queryByKeyWords">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="QueryHotTopics" class="TopicAction" method="queryHotTopics">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="FindTopicById" class="TopicAction" method="findTopicById">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="FindTopicByUserid" class="TopicAction" method="findTopicByUserid">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="FindTopicsByLable" class="TopicAction" method="findTopicsByLable">
 			<result type="json">
 				<param name="root">result</param>
 			</result>
