@@ -2,6 +2,10 @@ package com.app.bigger.topic.daoimpl;
 
 import java.util.List;
 
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.springframework.orm.hibernate4.HibernateCallback;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 
 import com.app.bigger.topic.action.bean.FindTopicByIdResult;
@@ -31,12 +35,23 @@ public class TopicDAOImpl extends HibernateDaoSupport implements TopicDAO {
 	}
 
 	@Override
-	public queryHotTopicResult findHotTopics(int sum) {
+	public queryHotTopicResult findHotTopics(final int sum) {
 		// TODO Auto-generated method stub
-		queryHotTopicResult queryresult = new queryHotTopicResult();
-		String sql = "from Topic order by hot desc limit 0," + sum;
-		List<Topic> list = (List<Topic>) getHibernateTemplate().find(sql);
-		queryresult.setTopics(list);
+		final queryHotTopicResult queryresult = new queryHotTopicResult();
+		final String sql = "from Topic order by hot desc";
+		List list = null;
+		getHibernateTemplate().execute(new HibernateCallback() {
+			@Override
+			public Object doInHibernate(Session session)
+					throws HibernateException {
+				// TODO Auto-generated method stub
+				Query query = session.createQuery(sql);
+				query.setFirstResult(0);
+				query.setMaxResults(sum);
+				queryresult.setTopics(query.list());
+				return query;
+			}
+		});
 		return queryresult;
 	}
 
@@ -66,16 +81,24 @@ public class TopicDAOImpl extends HibernateDaoSupport implements TopicDAO {
 	}
 
 	@Override
-	public FindTopicsByLableResult FindTopicsByLable(String lable, String num) {
+	public FindTopicsByLableResult FindTopicsByLable(final String lable,
+			final String num) {
 		// TODO Auto-generated method stub
-		FindTopicsByLableResult result = new FindTopicsByLableResult();
-		String qry = "from Topic where lable like ? order by hot desc limit 0,"
-				+ num;
-		List<Topic> topics = (List<Topic>) getHibernateTemplate().find(qry,
-				"%" + lable + "%");
-		if (topics.size() > 0) {
-			result.setTopics(topics);
-		}
+		final FindTopicsByLableResult result = new FindTopicsByLableResult();
+		final String qry = "from Topic where lable like ? order by hot desc";
+		getHibernateTemplate().execute(new HibernateCallback() {
+			@Override
+			public Object doInHibernate(Session session)
+					throws HibernateException {
+				// TODO Auto-generated method stub
+				Query query = session.createQuery(qry);
+				query.setParameter(0, "%" + lable + "%");
+				query.setFirstResult(0);
+				query.setMaxResults(Integer.valueOf(num));
+				result.setTopics(query.list());
+				return query;
+			}
+		});
 		return result;
 	}
 }
