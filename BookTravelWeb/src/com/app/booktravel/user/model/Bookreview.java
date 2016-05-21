@@ -22,12 +22,6 @@ public class Bookreview implements java.io.Serializable {
 	public Bookreview() {
 	}
 
-	/** minimal constructor */
-	public Bookreview(String content, Timestamp time) {
-		this.content = content;
-		this.time = time;
-	}
-
 	/** full constructor */
 	public Bookreview(User user, Book book, String content, Timestamp time) {
 		this.user = user;

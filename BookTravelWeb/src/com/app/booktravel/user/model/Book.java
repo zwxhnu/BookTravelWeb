@@ -20,6 +20,7 @@ public class Book implements java.io.Serializable {
 	private Boolean state;
 	private Integer recommend;
 	private Integer owner;
+	private String title;
 	private Set topics = new HashSet(0);
 	private Set driftprocesses = new HashSet(0);
 	private Set bookreviews = new HashSet(0);
@@ -30,18 +31,10 @@ public class Book implements java.io.Serializable {
 	public Book() {
 	}
 
-	/** minimal constructor */
-	public Book(String isbn, Boolean state, Integer recommend, Integer owner) {
-		this.isbn = isbn;
-		this.state = state;
-		this.recommend = recommend;
-		this.owner = owner;
-	}
-
 	/** full constructor */
 	public Book(Driftpoint driftpoint, String isbn, String cover,
 			String introduction, Float score, Boolean state, Integer recommend,
-			Integer owner, Set topics, Set driftprocesses, Set bookreviews) {
+			Integer owner, String title, Set topics, Set driftprocesses, Set bookreviews) {
 		this.driftpoint = driftpoint;
 		this.isbn = isbn;
 		this.cover = cover;
@@ -50,6 +43,7 @@ public class Book implements java.io.Serializable {
 		this.state = state;
 		this.recommend = recommend;
 		this.owner = owner;
+		this.title = title;
 		this.topics = topics;
 		this.driftprocesses = driftprocesses;
 		this.bookreviews = bookreviews;
@@ -127,6 +121,14 @@ public class Book implements java.io.Serializable {
 
 	public void setOwner(Integer owner) {
 		this.owner = owner;
+	}
+	
+	public String getTitle() {
+		return this.title;
+	}
+	
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public Set getTopics() {

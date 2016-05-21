@@ -5,11 +5,7 @@ import com.app.booktravel.user.service.BookreviewService;
 
 public class BookreviewAction extends SuperAction {
 	private BookreviewService bookreviewservice;
-
-	public BookreviewService getBookreviewservice() {
-		return bookreviewservice;
-	}
-
+	
 	public void setBookreviewservice(BookreviewService bookreviewservice) {
 		this.bookreviewservice = bookreviewservice;
 	}

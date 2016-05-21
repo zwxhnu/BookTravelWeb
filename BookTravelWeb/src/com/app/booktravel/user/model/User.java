@@ -1,5 +1,6 @@
 package com.app.booktravel.user.model;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,6 +18,8 @@ public class User implements java.io.Serializable {
 	private String password;
 	private String tel;
 	private String photo;
+	private Date birth;
+	private Boolean gender;
 	private Set topics = new HashSet(0);
 	private Set driftprocesses = new HashSet(0);
 	private Set comments = new HashSet(0);
@@ -29,36 +32,22 @@ public class User implements java.io.Serializable {
 	public User() {
 	}
 
-	/** minimal constructor */
-	public User(String username, String password, String tel) {
-		this.username = username;
-		this.password = password;
-		this.tel = tel;
-	}
-
 	/** full constructor */
 	public User(Mybook mybook, String username, String password, String tel,
-			String photo, Set topics, Set driftprocesses, Set comments,
-			Set mybooks, Set bookreviews) {
+			String photo, Date birth, Boolean gender, Set topics,
+			Set driftprocesses, Set comments, Set mybooks, Set bookreviews) {
 		this.mybook = mybook;
 		this.username = username;
 		this.password = password;
 		this.tel = tel;
 		this.photo = photo;
+		this.birth = birth;
+		this.gender = gender;
 		this.topics = topics;
 		this.driftprocesses = driftprocesses;
 		this.comments = comments;
 		this.mybooks = mybooks;
 		this.bookreviews = bookreviews;
-	}
-
-	public User(Mybook mybook, String username, String password, String tel,
-			String photo) {
-		this.mybook = mybook;
-		this.username = username;
-		this.password = password;
-		this.tel = tel;
-		this.photo = photo;
 	}
 
 	// Property accessors
@@ -111,6 +100,22 @@ public class User implements java.io.Serializable {
 		this.photo = photo;
 	}
 
+	public Date getBirth() {
+		return this.birth;
+	}
+
+	public void setBirth(Date birth) {
+		this.birth = birth;
+	}
+
+	public Boolean getGender() {
+		return this.gender;
+	}
+
+	public void setGender(Boolean gender) {
+		this.gender = gender;
+	}
+
 	public Set getTopics() {
 		return this.topics;
 	}
@@ -149,16 +154,6 @@ public class User implements java.io.Serializable {
 
 	public void setBookreviews(Set bookreviews) {
 		this.bookreviews = bookreviews;
-	}
-
-	@Override
-	public String toString() {
-		return "User [userid=" + userid + ", mybook=" + mybook + ", username="
-				+ username + ", password=" + password + ", tel=" + tel
-				+ ", photo=" + photo + ", topics=" + topics
-				+ ", driftprocesses=" + driftprocesses + ", comments="
-				+ comments + ", mybooks=" + mybooks + ", bookreviews="
-				+ bookreviews + "]";
 	}
 
 }

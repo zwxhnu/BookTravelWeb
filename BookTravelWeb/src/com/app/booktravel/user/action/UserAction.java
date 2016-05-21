@@ -6,6 +6,7 @@ import org.apache.struts2.ServletActionContext;
 
 import com.app.booktravel.common.action.SuperAction;
 import com.app.booktravel.common.action.bean.Result;
+import com.app.booktravel.user.action.bean.QueryPersonalResult;
 import com.app.booktravel.user.action.bean.UserLoginResult;
 import com.app.booktravel.user.model.User;
 import com.app.booktravel.user.service.UserService;
@@ -69,5 +70,22 @@ public class UserAction extends SuperAction {
 			result.setCode(500);
 			return SUCCESS;
 		}
+	}
+	
+	public String QueryPersonalCenter() {
+		try {
+			String userphone = ServletActionContext.getRequest().getParameter("userphone");
+			result=new QueryPersonalResult();
+			QueryPersonalResult res = userservice.queryPersonalAndProcess(userphone);
+			result = res;
+			result.setCode(200);//成功进入个人空间
+			System.out.println("成功进入个人空间");
+			return SUCCESS;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return SUCCESS;
+		
 	}
 }

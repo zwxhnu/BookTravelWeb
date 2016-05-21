@@ -21,11 +21,6 @@ public class Activity implements java.io.Serializable {
 	public Activity() {
 	}
 
-	/** minimal constructor */
-	public Activity(String content) {
-		this.content = content;
-	}
-
 	/** full constructor */
 	public Activity(Driftpoint driftpoint, String content, Timestamp time) {
 		this.driftpoint = driftpoint;

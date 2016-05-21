@@ -23,13 +23,6 @@ public class Comment implements java.io.Serializable {
 	public Comment() {
 	}
 
-	/** minimal constructor */
-	public Comment(String content, Timestamp time, Integer aimedid) {
-		this.content = content;
-		this.time = time;
-		this.aimedid = aimedid;
-	}
-
 	/** full constructor */
 	public Comment(Topic topic, User user, String content, Timestamp time,
 			Integer aimedid) {

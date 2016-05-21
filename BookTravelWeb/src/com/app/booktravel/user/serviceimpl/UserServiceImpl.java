@@ -2,7 +2,9 @@ package com.app.booktravel.user.serviceimpl;
 
 import org.springframework.transaction.annotation.Transactional;
 
+import com.app.booktravel.user.action.bean.QueryPersonalResult;
 import com.app.booktravel.user.action.bean.UserLoginResult;
+import com.app.booktravel.user.dao.TopicDAO;
 import com.app.booktravel.user.dao.UserDAO;
 import com.app.booktravel.user.model.User;
 import com.app.booktravel.user.service.UserService;
@@ -10,6 +12,10 @@ import com.app.booktravel.user.service.UserService;
 public class UserServiceImpl implements UserService {
 	private UserDAO userdao;
 
+	public UserDAO getUserdao() {
+		return userdao;
+	}
+	
 	public void setUserdao(UserDAO userdao) {
 		this.userdao = userdao;
 	}
@@ -37,6 +43,12 @@ public class UserServiceImpl implements UserService {
 	public UserLoginResult findUserByPhoneAndPass(String phone, String password) {
 		// TODO Auto-generated method stub
 		return userdao.findUserByPhoneAndPass(phone, password);
+	}
+
+	@Override
+	public QueryPersonalResult queryPersonalAndProcess(String phone) {
+		// TODO Auto-generated method stub
+		return userdao.queryPersonalAndProcess(phone);
 	}
 
 }
