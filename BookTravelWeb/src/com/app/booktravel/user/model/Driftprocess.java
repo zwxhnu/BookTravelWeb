@@ -5,7 +5,6 @@ import java.sql.Timestamp;
 /**
  * Driftprocess entity. @author MyEclipse Persistence Tools
  */
-
 public class Driftprocess implements java.io.Serializable {
 
 	// Fields

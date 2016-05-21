@@ -2,6 +2,10 @@ package com.app.booktravel.user.daoimpl;
 
 import java.util.List;
 
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.springframework.orm.hibernate4.HibernateCallback;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 
 import com.app.booktravel.user.action.bean.QueryPersonalResult;
@@ -40,8 +44,7 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
 		// TODO Auto-generated method stub
 		UserLoginResult result = new UserLoginResult();
 		List<User> list = (List<User>) getHibernateTemplate().find(
-				"from User where tel=? and password=?", phone,
-				password);
+				"from User where tel=? and password=?", phone, password);
 		if (list.size() == 0)
 			return result;
 		result.setUser(list.get(0));
@@ -49,19 +52,12 @@ public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
 	}
 
 	@Override
-	public QueryPersonalResult queryPersonalAndProcess(String phone) {
+	public QueryPersonalResult queryPersonalAndProcess(final String phone) {
 		// TODO Auto-generated method stub
-		QueryPersonalResult result = new QueryPersonalResult();
+		final QueryPersonalResult result = new QueryPersonalResult();
 		List<User> userlist = (List<User>) getHibernateTemplate().find(
 				"from User where tel=?", phone);
-		List<Driftprocess> processlist = (List<Driftprocess>) getHibernateTemplate().find(
-				"from Driftprocess where userid in (select userid from User where tel=?)", phone);
 		result.setUser(userlist.get(0));
-		result.setDriftprocesses(processlist);
 		return result;
 	}
-	
-	
-	
-
 }

@@ -26,6 +26,7 @@ public class UserAction extends SuperAction {
 					"password");
 			UserLoginResult res = userservice.findUserByPhoneAndPass(phone,
 					password);
+			System.out.println(phone + "---" + password);
 			if (userservice.findUserByPhone(phone) == null) {
 				result.setCode(100);// 手机账号不存在
 				System.out.println("手机账号不存在");
@@ -71,14 +72,16 @@ public class UserAction extends SuperAction {
 			return SUCCESS;
 		}
 	}
-	
+
 	public String QueryPersonalCenter() {
 		try {
-			String userphone = ServletActionContext.getRequest().getParameter("userphone");
-			result=new QueryPersonalResult();
-			QueryPersonalResult res = userservice.queryPersonalAndProcess(userphone);
+			String userphone = ServletActionContext.getRequest().getParameter(
+					"userphone");
+			result = new QueryPersonalResult();
+			QueryPersonalResult res = userservice
+					.queryPersonalAndProcess(userphone);
 			result = res;
-			result.setCode(200);//成功进入个人空间
+			result.setCode(200);// 成功进入个人空间
 			System.out.println("成功进入个人空间");
 			return SUCCESS;
 		} catch (Exception e) {
@@ -86,6 +89,6 @@ public class UserAction extends SuperAction {
 			e.printStackTrace();
 		}
 		return SUCCESS;
-		
+
 	}
 }

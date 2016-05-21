@@ -1,7 +1,5 @@
 package com.app.booktravel.user.action.bean;
 
-import org.apache.struts2.json.annotations.JSON;
-
 import com.app.booktravel.common.action.bean.Result;
 import com.app.booktravel.user.model.User;
 
