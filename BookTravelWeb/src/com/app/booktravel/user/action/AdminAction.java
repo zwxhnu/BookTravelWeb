@@ -6,10 +6,6 @@ import com.app.booktravel.user.service.AdminService;
 public class AdminAction extends SuperAction {
 	private AdminService adminservice;
 
-	public AdminService getAdminservice() {
-		return adminservice;
-	}
-
 	public void setAdminservice(AdminService adminservice) {
 		this.adminservice = adminservice;
 	}

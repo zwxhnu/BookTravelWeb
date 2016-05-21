@@ -7,4 +7,5 @@ import com.app.booktravel.user.service.MybookService;
 
 public class MybookDAOImpl extends HibernateDaoSupport implements MybookDAO {
 
+
 }

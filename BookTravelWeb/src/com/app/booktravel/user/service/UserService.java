@@ -1,5 +1,6 @@
 package com.app.booktravel.user.service;
 
+import com.app.booktravel.user.action.bean.QueryPersonalResult;
 import com.app.booktravel.user.action.bean.UserLoginResult;
 import com.app.booktravel.user.model.User;
 
@@ -11,4 +12,6 @@ public interface UserService {
 	public boolean deleteUserById();
 
 	public UserLoginResult findUserByPhoneAndPass(String phone, String password);
+	
+	public QueryPersonalResult queryPersonalAndProcess(String phone);
 }

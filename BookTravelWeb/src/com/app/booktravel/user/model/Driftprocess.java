@@ -23,13 +23,6 @@ public class Driftprocess implements java.io.Serializable {
 	public Driftprocess() {
 	}
 
-	/** minimal constructor */
-	public Driftprocess(Timestamp time, String place, Boolean flag) {
-		this.time = time;
-		this.place = place;
-		this.flag = flag;
-	}
-
 	/** full constructor */
 	public Driftprocess(User user, Book book, Timestamp time, String place,
 			Boolean flag) {
