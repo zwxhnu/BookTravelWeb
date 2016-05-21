@@ -20,7 +20,6 @@ public class User implements java.io.Serializable {
 	private String userlogo;
 	private String usersign;
 	private Integer userdynamic;
-	private Integer userlaud;
 	private Integer userfans;
 	private Integer userattention;
 	private Integer userhot;
@@ -34,8 +33,8 @@ public class User implements java.io.Serializable {
 	/** full constructor */
 	public User(String userphone, String username, String userpassword,
 			String userlable, String userlogo, String usersign,
-			Integer userdynamic, Integer userlaud, Integer userfans,
-			Integer userattention, Integer userhot) {
+			Integer userdynamic, Integer userfans, Integer userattention,
+			Integer userhot) {
 		this.userphone = userphone;
 		this.username = username;
 		this.userpassword = userpassword;
@@ -43,7 +42,6 @@ public class User implements java.io.Serializable {
 		this.userlogo = userlogo;
 		this.usersign = usersign;
 		this.userdynamic = userdynamic;
-		this.userlaud = userlaud;
 		this.userfans = userfans;
 		this.userattention = userattention;
 		this.userhot = userhot;
@@ -113,14 +111,6 @@ public class User implements java.io.Serializable {
 
 	public void setUserdynamic(Integer userdynamic) {
 		this.userdynamic = userdynamic;
-	}
-
-	public Integer getUserlaud() {
-		return this.userlaud;
-	}
-
-	public void setUserlaud(Integer userlaud) {
-		this.userlaud = userlaud;
 	}
 
 	public Integer getUserfans() {
