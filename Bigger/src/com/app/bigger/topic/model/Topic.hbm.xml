@@ -33,9 +33,6 @@
 		<property name="comment" type="java.lang.Integer">
 			<column name="comment" />
 		</property>
-		<property name="join" type="java.lang.Integer">
-			<column name="join" />
-		</property>
 		<property name="hot" type="java.lang.Integer">
 			<column name="hot" />
 		</property>

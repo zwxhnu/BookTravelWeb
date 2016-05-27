@@ -13,7 +13,7 @@
 		</property>
 		<property name="user" value="root"></property>
 		<!-- CBdogaxx19941218 -->
-		<property name="password" value="123456"></property>
+		<property name="password" value="CBdogaxx19941218"></property>
 	</bean>
 
 	<bean id="sessionFactory"
@@ -56,89 +56,92 @@
 		<!-- 注入持久化操作所需的SessionFactory -->
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	
+
 	<bean id="TopicDAO" class="com.app.booktravel.user.daoimpl.TopicDAOImpl">
 		<!-- 注入持久化操作所需的SessionFactory -->
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	
+
 	<bean id="MybookDAO" class="com.app.booktravel.user.daoimpl.MybookDAOImpl">
 		<!-- 注入持久化操作所需的SessionFactory -->
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	
+
 	<bean id="DriftprocessDAO" class="com.app.booktravel.user.daoimpl.DriftprocessDAOImpl">
 		<!-- 注入持久化操作所需的SessionFactory -->
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	
+
 	<bean id="DriftpointDAO" class="com.app.booktravel.user.daoimpl.DriftpointDAOImpl">
 		<!-- 注入持久化操作所需的SessionFactory -->
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	
+
 	<bean id="CommentDAO" class="com.app.booktravel.user.daoimpl.CommentDAOImpl">
 		<!-- 注入持久化操作所需的SessionFactory -->
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	
+
 	<bean id="BookreviewDAO" class="com.app.booktravel.user.daoimpl.BookreviewDAOImpl">
 		<!-- 注入持久化操作所需的SessionFactory -->
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	
+
 	<bean id="BookDAO" class="com.app.booktravel.user.daoimpl.BookDAOImpl">
 		<!-- 注入持久化操作所需的SessionFactory -->
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	
+
 	<bean id="AdminDAO" class="com.app.booktravel.user.daoimpl.AdminDAOImpl">
 		<!-- 注入持久化操作所需的SessionFactory -->
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	
+
 	<bean id="ActivityDAO" class="com.app.booktravel.user.daoimpl.ActivityDAOImpl">
 		<!-- 注入持久化操作所需的SessionFactory -->
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	
+
 	<!--service注入dao id为下面的ref class为 service实现类 name="service实现类中声明的dao" -->
 	<bean id="UserService" class="com.app.booktravel.user.serviceimpl.UserServiceImpl">
 		<property name="userdao" ref="UserDAO" />
 	</bean>
-	
+
 	<bean id="TopicService" class="com.app.booktravel.user.serviceimpl.TopicServiceImpl">
 		<property name="topicdao" ref="TopicDAO" />
 	</bean>
-	
+
 	<bean id="MybookService" class="com.app.booktravel.user.serviceimpl.MybookServiceImpl">
 		<property name="mybookdao" ref="MybookDAO" />
 	</bean>
-	
-	<bean id="DriftprocessService" class="com.app.booktravel.user.serviceimpl.DriftprocessServiceImpl">
+
+	<bean id="DriftprocessService"
+		class="com.app.booktravel.user.serviceimpl.DriftprocessServiceImpl">
 		<property name="driftprocessdao" ref="DriftprocessDAO" />
 	</bean>
-	
-	<bean id="DriftpointService" class="com.app.booktravel.user.serviceimpl.DriftpointServiceImpl">
+
+	<bean id="DriftpointService"
+		class="com.app.booktravel.user.serviceimpl.DriftpointServiceImpl">
 		<property name="driftpointdao" ref="DriftpointDAO" />
 	</bean>
-	
+
 	<bean id="CommentService" class="com.app.booktravel.user.serviceimpl.CommentServiceImpl">
 		<property name="commentdao" ref="CommentDAO" />
 	</bean>
-	
+
 	<bean id="BookService" class="com.app.booktravel.user.serviceimpl.BookServiceImpl">
 		<property name="bookdao" ref="BookDAO" />
 	</bean>
-	
-	<bean id="BookreviewService" class="com.app.booktravel.user.serviceimpl.BookreviewServiceImpl">
+
+	<bean id="BookreviewService"
+		class="com.app.booktravel.user.serviceimpl.BookreviewServiceImpl">
 		<property name="bookreviewdao" ref="BookreviewDAO" />
 	</bean>
-	
+
 	<bean id="AdminService" class="com.app.booktravel.user.serviceimpl.AdminServiceImpl">
 		<property name="admindao" ref="AdminDAO" />
 	</bean>
-	
+
 	<bean id="ActivityService" class="com.app.booktravel.user.serviceimpl.ActivityServiceImpl">
 		<property name="activitydao" ref="ActivityDAO" />
 	</bean>
@@ -149,32 +152,32 @@
 		scope="prototype">
 		<property name="userservice" ref="UserService" />
 	</bean>
-	
+
 	<bean id="TopicAction" class="com.app.booktravel.user.action.TopicAction"
 		scope="prototype">
 		<property name="topicservice" ref="TopicService" />
 	</bean>
-	
+
 	<bean id="MybookAction" class="com.app.booktravel.user.action.MybookAction"
 		scope="prototype">
 		<property name="mybookservice" ref="MybookService" />
 	</bean>
-	
+
 	<bean id="DriftprocessAction" class="com.app.booktravel.user.action.DriftprocessAction"
 		scope="prototype">
 		<property name="driftprocessservice" ref="DriftprocessService" />
 	</bean>
-	
+
 	<bean id="DriftpointAction" class="com.app.booktravel.user.action.DriftpointAction"
 		scope="prototype">
 		<property name="driftpointservice" ref="DriftpointService" />
 	</bean>
-	
+
 	<bean id="CommentAction" class="com.app.booktravel.user.action.CommentAction"
 		scope="prototype">
 		<property name="commentservice" ref="CommentService" />
 	</bean>
-	
+
 	<bean id="BookreviewAction" class="com.app.booktravel.user.action.BookreviewAction"
 		scope="prototype">
 		<property name="bookreviewservice" ref="BookreviewService" />
@@ -184,12 +187,12 @@
 		scope="prototype">
 		<property name="bookservice" ref="BookService" />
 	</bean>
-	
+
 	<bean id="AdminAction" class="com.app.booktravel.user.action.AdminAction"
 		scope="prototype">
 		<property name="adminservice" ref="AdminService" />
 	</bean>
-	
+
 	<bean id="ActivityAction" class="com.app.booktravel.user.action.ActivityAction"
 		scope="prototype">
 		<property name="activityservice" ref="ActivityService" />

@@ -21,7 +21,6 @@ public class Topic implements java.io.Serializable {
 	private String picture;
 	private Integer laud;
 	private Integer comment;
-	private Integer join;
 	private Integer hot;
 	private Set topicComs = new HashSet(0);
 
@@ -34,7 +33,7 @@ public class Topic implements java.io.Serializable {
 	/** full constructor */
 	public Topic(Integer userid, Date time, String title, String lable,
 			String content, String picture, Integer laud, Integer comment,
-			Integer join, Integer hot, Set topicComs) {
+			Integer hot, Set topicComs) {
 		this.userid = userid;
 		this.time = time;
 		this.title = title;
@@ -43,7 +42,6 @@ public class Topic implements java.io.Serializable {
 		this.picture = picture;
 		this.laud = laud;
 		this.comment = comment;
-		this.join = join;
 		this.hot = hot;
 		this.topicComs = topicComs;
 	}
@@ -122,14 +120,6 @@ public class Topic implements java.io.Serializable {
 		this.comment = comment;
 	}
 
-	public Integer getJoin() {
-		return this.join;
-	}
-
-	public void setJoin(Integer join) {
-		this.join = join;
-	}
-
 	public Integer getHot() {
 		return this.hot;
 	}
@@ -151,7 +141,7 @@ public class Topic implements java.io.Serializable {
 		return "Topic [topicid=" + topicid + ", userid=" + userid + ", time="
 				+ time + ", title=" + title + ", lable=" + lable + ", content="
 				+ content + ", picture=" + picture + ", laud=" + laud
-				+ ", comment=" + comment + ", join=" + join + ", hot=" + hot
-				+ ", topicComs=" + topicComs + "]";
+				+ ", comment=" + comment + ", hot=" + hot + ", topicComs="
+				+ topicComs + "]";
 	}
 }

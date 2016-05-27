@@ -62,7 +62,7 @@ public class UserLoginAction extends SuperAction {
 		String username = new String(request.getParameter("username").getBytes(
 				"ISO8859-1"), "UTF-8");
 		String phone = request.getParameter("userphone");
-		String password = request.getParameter("userpassword");
+		String password = request.getParameter("password");
 		User user = new User();
 		user.setUsername(username);
 		user.setUserphone(phone);
@@ -88,8 +88,8 @@ public class UserLoginAction extends SuperAction {
 		String phone = null;
 		String lable = null;
 		try {
-			phone = new String(request.getParameter("userphone").getBytes(
-					"ISO8859-1"), "UTF-8");
+			phone = request.getParameter("userphone");
+
 			lable = new String(request.getParameter("userlable").getBytes(
 					"ISO8859-1"), "UTF-8");
 		} catch (UnsupportedEncodingException e) {
@@ -100,14 +100,14 @@ public class UserLoginAction extends SuperAction {
 		result = new Result();
 		if (userservice.findUserByPhone(phone) == null) {
 			result.setCode(100);
-			System.out.println("Ìí¼Ó±êÇ©Ê§°Ü");
+			System.out.println("Ìí¼Ó±êÇ©Ê§°Ü" + phone + "---" + lable);
 			return SUCCESS;
 		} else if (userservice.addLable(phone, lable)) {
 			result.setCode(200);
 			System.out.println("Ìí¼Ó±êÇ©³É¹¦");
 			return SUCCESS;
 		} else {
-			result.setCode(100);
+			result.setCode(500);
 			System.out.println("Ìí¼Ó±êÇ©Ê§°Ü");
 			return SUCCESS;
 		}

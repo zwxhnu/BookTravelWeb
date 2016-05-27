@@ -30,9 +30,6 @@
 		<property name="userdynamic" type="java.lang.Integer">
 			<column name="userdynamic" />
 		</property>
-		<property name="userlaud" type="java.lang.Integer">
-			<column name="userlaud" />
-		</property>
 		<property name="userfans" type="java.lang.Integer">
 			<column name="userfans" />
 		</property>

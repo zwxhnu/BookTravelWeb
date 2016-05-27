@@ -15,7 +15,8 @@
 				<param name="root">result</param>
 			</result>
 		</action>
-		<action name="UserQueryPersonalCenter" class="UserAction" method="QueryPersonalCenter">
+		<action name="UserQueryPersonalCenter" class="UserAction"
+			method="QueryPersonalCenter">
 			<result type="json">
 				<param name="root">result</param>
 			</result>
