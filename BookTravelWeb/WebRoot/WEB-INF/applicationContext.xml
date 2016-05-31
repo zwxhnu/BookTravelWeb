@@ -13,7 +13,7 @@
 		</property>
 		<property name="user" value="root"></property>
 		<!-- CBdogaxx19941218 -->
-		<property name="password" value="CBdogaxx19941218"></property>
+		<property name="password" value="123456"></property>
 	</bean>
 
 	<bean id="sessionFactory"
