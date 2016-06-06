@@ -3,6 +3,8 @@ package com.app.booktravel.user.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.apache.struts2.json.annotations.JSON;
+
 /**
  * Book entity. @author MyEclipse Persistence Tools
  */
@@ -34,7 +36,8 @@ public class Book implements java.io.Serializable {
 	/** full constructor */
 	public Book(Driftpoint driftpoint, String isbn, String cover,
 			String introduction, Float score, Boolean state, Integer recommend,
-			Integer owner, String title, Set topics, Set driftprocesses, Set bookreviews) {
+			Integer owner, String title, Set topics, Set driftprocesses,
+			Set bookreviews) {
 		this.driftpoint = driftpoint;
 		this.isbn = isbn;
 		this.cover = cover;
@@ -122,15 +125,16 @@ public class Book implements java.io.Serializable {
 	public void setOwner(Integer owner) {
 		this.owner = owner;
 	}
-	
+
 	public String getTitle() {
 		return this.title;
 	}
-	
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
 
+	@JSON(serialize = false)
 	public Set getTopics() {
 		return this.topics;
 	}
@@ -139,6 +143,7 @@ public class Book implements java.io.Serializable {
 		this.topics = topics;
 	}
 
+	@JSON(serialize = false)
 	public Set getDriftprocesses() {
 		return this.driftprocesses;
 	}
@@ -147,6 +152,7 @@ public class Book implements java.io.Serializable {
 		this.driftprocesses = driftprocesses;
 	}
 
+	@JSON(serialize = false)
 	public Set getBookreviews() {
 		return this.bookreviews;
 	}

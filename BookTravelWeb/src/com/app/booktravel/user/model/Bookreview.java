@@ -1,6 +1,8 @@
 package com.app.booktravel.user.model;
 
 import java.sql.Timestamp;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Bookreview entity. @author MyEclipse Persistence Tools
@@ -15,6 +17,7 @@ public class Bookreview implements java.io.Serializable {
 	private Book book;
 	private String content;
 	private Timestamp time;
+	private Set praises = new HashSet(0);
 
 	// Constructors
 
@@ -23,11 +26,13 @@ public class Bookreview implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Bookreview(User user, Book book, String content, Timestamp time) {
+	public Bookreview(User user, Book book, String content, Timestamp time,
+			Set praises) {
 		this.user = user;
 		this.book = book;
 		this.content = content;
 		this.time = time;
+		this.praises = praises;
 	}
 
 	// Property accessors
@@ -70,6 +75,14 @@ public class Bookreview implements java.io.Serializable {
 
 	public void setTime(Timestamp time) {
 		this.time = time;
+	}
+
+	public Set getPraises() {
+		return this.praises;
+	}
+
+	public void setPraises(Set praises) {
+		this.praises = praises;
 	}
 
 }

@@ -2,20 +2,20 @@ package com.app.booktravel.user.serviceimpl;
 
 import org.springframework.transaction.annotation.Transactional;
 
+import com.app.booktravel.user.action.bean.QueryMyTopicsResult;
 import com.app.booktravel.user.action.bean.QueryPersonalResult;
 import com.app.booktravel.user.action.bean.UserLoginResult;
 import com.app.booktravel.user.dao.TopicDAO;
 import com.app.booktravel.user.dao.UserDAO;
+import com.app.booktravel.user.model.Book;
+import com.app.booktravel.user.model.Mybook;
+import com.app.booktravel.user.model.Topic;
 import com.app.booktravel.user.model.User;
 import com.app.booktravel.user.service.UserService;
 
 public class UserServiceImpl implements UserService {
 	private UserDAO userdao;
 
-	public UserDAO getUserdao() {
-		return userdao;
-	}
-	
 	public void setUserdao(UserDAO userdao) {
 		this.userdao = userdao;
 	}
@@ -49,6 +49,43 @@ public class UserServiceImpl implements UserService {
 	public QueryPersonalResult queryPersonalAndProcess(String phone) {
 		// TODO Auto-generated method stub
 		return userdao.queryPersonalAndProcess(phone);
+	}
+
+	@Override
+	public QueryMyTopicsResult QueryMyTopics(int userid) {
+		// TODO Auto-generated method stub
+		return userdao.QueryMyTopics(userid);
+	}
+
+	@Override
+	public Book QueryBookById(int bookid) {
+		// TODO Auto-generated method stub
+		return userdao.QueryBookById(bookid);
+	}
+
+	@Override
+	public User QueryUserById(int userid) {
+		// TODO Auto-generated method stub
+		return userdao.QueryUserById(userid);
+	}
+
+	@Override
+	public Mybook QueryMyBooks(int userid) {
+		// TODO Auto-generated method stub
+		return userdao.QueryMyBooks(userid);
+	}
+
+	@Override
+	public Book QueryBookByIsbn(String isbn) {
+		// TODO Auto-generated method stub
+		return userdao.QueryBookByIsbn(isbn);
+	}
+	
+	@Override
+	@Transactional(rollbackFor = { Exception.class })
+	public boolean addTopic(Topic t) {
+		// TODO Auto-generated method stub
+		return userdao.addTopic(t);
 	}
 
 }

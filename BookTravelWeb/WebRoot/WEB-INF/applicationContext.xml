@@ -40,6 +40,7 @@
 				<value>com/app/booktravel/user/model/Book.hbm.xml</value>
 				<value>com/app/booktravel/user/model/Admin.hbm.xml</value>
 				<value>com/app/booktravel/user/model/Activity.hbm.xml</value>
+				<value>com/app/booktravel/user/model/Praise.hbm.xml</value>
 			</list>
 		</property>
 	</bean>
@@ -101,6 +102,11 @@
 		<!-- 注入持久化操作所需的SessionFactory -->
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
+	
+	<bean id="PraiseDAO" class="com.app.booktravel.user.daoimpl.PraiseDAOImpl">
+		<!-- 注入持久化操作所需的SessionFactory -->
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
 
 	<!--service注入dao id为下面的ref class为 service实现类 name="service实现类中声明的dao" -->
 	<bean id="UserService" class="com.app.booktravel.user.serviceimpl.UserServiceImpl">
@@ -144,6 +150,10 @@
 
 	<bean id="ActivityService" class="com.app.booktravel.user.serviceimpl.ActivityServiceImpl">
 		<property name="activitydao" ref="ActivityDAO" />
+	</bean>
+	
+	<bean id="PraiseService" class="com.app.booktravel.user.serviceimpl.PraiseServiceImpl">
+		<property name="praisedao" ref="PraiseDAO" />
 	</bean>
 
 	<!-- Action注入 service id="" 注入 class="action路径" name="loginservice"与LoginAction中声明的要保持一致 
@@ -196,5 +206,10 @@
 	<bean id="ActivityAction" class="com.app.booktravel.user.action.ActivityAction"
 		scope="prototype">
 		<property name="activityservice" ref="ActivityService" />
+	</bean>
+	
+	<bean id="PraiseAction" class="com.app.booktravel.user.action.PraiseAction"
+		scope="prototype">
+		<property name="praiseservice" ref="praiseService" />
 	</bean>
 </beans>

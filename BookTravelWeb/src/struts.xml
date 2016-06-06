@@ -16,7 +16,37 @@
 			</result>
 		</action>
 		<action name="UserQueryPersonalCenter" class="UserAction"
-			method="QueryPersonalCenter">
+			method="queryPersonalCenter">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="QueryMyTopics" class="UserAction" method="queryMyTopics">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="QueryMyBooks" class="UserAction" method="queryMyBooks">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="QueryTopics" class="TopicAction" method="queryTopics">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="QueryTopicsByKeyWords" class="TopicAction" method="queryTopicsByKeyWords">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="QueryTopicDetails" class="TopicAction" method="queryTopicDetails">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="PublishTopic" class="UserAction" method="PublishTopic">
 			<result type="json">
 				<param name="root">result</param>
 			</result>

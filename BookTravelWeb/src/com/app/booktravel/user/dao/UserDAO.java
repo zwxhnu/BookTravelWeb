@@ -1,7 +1,11 @@
 package com.app.booktravel.user.dao;
 
+import com.app.booktravel.user.action.bean.QueryMyTopicsResult;
 import com.app.booktravel.user.action.bean.QueryPersonalResult;
 import com.app.booktravel.user.action.bean.UserLoginResult;
+import com.app.booktravel.user.model.Book;
+import com.app.booktravel.user.model.Mybook;
+import com.app.booktravel.user.model.Topic;
 import com.app.booktravel.user.model.User;
 
 public interface UserDAO {
@@ -12,6 +16,18 @@ public interface UserDAO {
 	public boolean deleteUserById();
 
 	public UserLoginResult findUserByPhoneAndPass(String phone, String password);
-	
+
 	public QueryPersonalResult queryPersonalAndProcess(String phone);
+
+	public QueryMyTopicsResult QueryMyTopics(int userid);
+
+	public Book QueryBookById(int bookid);
+
+	public User QueryUserById(int userid);
+
+	public Mybook QueryMyBooks(int userid);
+
+	public Book QueryBookByIsbn(String isbn);
+	
+	public boolean addTopic(Topic t);
 }

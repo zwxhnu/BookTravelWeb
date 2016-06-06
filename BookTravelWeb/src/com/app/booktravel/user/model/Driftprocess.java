@@ -2,9 +2,12 @@ package com.app.booktravel.user.model;
 
 import java.sql.Timestamp;
 
+import org.apache.struts2.json.annotations.JSON;
+
 /**
  * Driftprocess entity. @author MyEclipse Persistence Tools
  */
+
 public class Driftprocess implements java.io.Serializable {
 
 	// Fields

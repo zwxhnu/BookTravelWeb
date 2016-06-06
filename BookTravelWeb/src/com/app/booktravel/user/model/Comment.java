@@ -1,6 +1,8 @@
 package com.app.booktravel.user.model;
 
 import java.sql.Timestamp;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Comment entity. @author MyEclipse Persistence Tools
@@ -16,6 +18,7 @@ public class Comment implements java.io.Serializable {
 	private String content;
 	private Timestamp time;
 	private Integer aimedid;
+	private Set praises = new HashSet(0);
 
 	// Constructors
 
@@ -25,12 +28,13 @@ public class Comment implements java.io.Serializable {
 
 	/** full constructor */
 	public Comment(Topic topic, User user, String content, Timestamp time,
-			Integer aimedid) {
+			Integer aimedid, Set praises) {
 		this.topic = topic;
 		this.user = user;
 		this.content = content;
 		this.time = time;
 		this.aimedid = aimedid;
+		this.praises = praises;
 	}
 
 	// Property accessors
@@ -81,6 +85,14 @@ public class Comment implements java.io.Serializable {
 
 	public void setAimedid(Integer aimedid) {
 		this.aimedid = aimedid;
+	}
+
+	public Set getPraises() {
+		return this.praises;
+	}
+
+	public void setPraises(Set praises) {
+		this.praises = praises;
 	}
 
 }

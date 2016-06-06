@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.apache.struts2.json.annotations.JSON;
+
 /**
  * User entity. @author MyEclipse Persistence Tools
  */
@@ -23,6 +25,7 @@ public class User implements java.io.Serializable {
 	private Set topics = new HashSet(0);
 	private Set driftprocesses = new HashSet(0);
 	private Set comments = new HashSet(0);
+	private Set praises = new HashSet(0);
 	private Set mybooks = new HashSet(0);
 	private Set bookreviews = new HashSet(0);
 
@@ -35,7 +38,8 @@ public class User implements java.io.Serializable {
 	/** full constructor */
 	public User(Mybook mybook, String username, String password, String tel,
 			String photo, Date birth, Boolean gender, Set topics,
-			Set driftprocesses, Set comments, Set mybooks, Set bookreviews) {
+			Set driftprocesses, Set comments, Set praises, Set mybooks,
+			Set bookreviews) {
 		this.mybook = mybook;
 		this.username = username;
 		this.password = password;
@@ -46,6 +50,7 @@ public class User implements java.io.Serializable {
 		this.topics = topics;
 		this.driftprocesses = driftprocesses;
 		this.comments = comments;
+		this.praises = praises;
 		this.mybooks = mybooks;
 		this.bookreviews = bookreviews;
 	}
@@ -116,6 +121,7 @@ public class User implements java.io.Serializable {
 		this.gender = gender;
 	}
 
+	@JSON(serialize = false)
 	public Set getTopics() {
 		return this.topics;
 	}
@@ -132,6 +138,7 @@ public class User implements java.io.Serializable {
 		this.driftprocesses = driftprocesses;
 	}
 
+	@JSON(serialize = false)
 	public Set getComments() {
 		return this.comments;
 	}
@@ -140,6 +147,16 @@ public class User implements java.io.Serializable {
 		this.comments = comments;
 	}
 
+	@JSON(serialize = false)
+	public Set getPraises() {
+		return this.praises;
+	}
+
+	public void setPraises(Set praises) {
+		this.praises = praises;
+	}
+
+	@JSON(serialize = false)
 	public Set getMybooks() {
 		return this.mybooks;
 	}
@@ -148,6 +165,7 @@ public class User implements java.io.Serializable {
 		this.mybooks = mybooks;
 	}
 
+	@JSON(serialize = false)
 	public Set getBookreviews() {
 		return this.bookreviews;
 	}
@@ -155,4 +173,5 @@ public class User implements java.io.Serializable {
 	public void setBookreviews(Set bookreviews) {
 		this.bookreviews = bookreviews;
 	}
+
 }

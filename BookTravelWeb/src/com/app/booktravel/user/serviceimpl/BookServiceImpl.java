@@ -10,10 +10,6 @@ import com.app.booktravel.user.service.BookService;
 public class BookServiceImpl implements BookService {
 	private BookDAO bookdao;
 
-	public BookDAO getBookdao() {
-		return bookdao;
-	}
-
 	public void setBookdao(BookDAO bookdao) {
 		this.bookdao = bookdao;
 	}
