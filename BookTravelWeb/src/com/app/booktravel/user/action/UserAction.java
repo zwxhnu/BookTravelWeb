@@ -167,7 +167,7 @@ public class UserAction extends SuperAction {
 				res.setCollections(books);
 			}
 			if (reading != null) {
-				String[] readings = reading.split("¡¢");
+				String[] readings = reading.split("¡¢"); 
 				List<Book> books = new ArrayList<Book>();
 				for (String string : readings) {
 					Book book = userservice.QueryBookByIsbn(string);

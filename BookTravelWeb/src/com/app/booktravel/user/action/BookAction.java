@@ -6,6 +6,7 @@ import com.app.booktravel.common.action.SuperAction;
 import com.app.booktravel.user.action.bean.BookInfoResult;
 import com.app.booktravel.user.action.bean.QueryPersonalResult;
 import com.app.booktravel.user.service.BookService;
+import com.opensymphony.xwork2.ActionContext;
 
 public class BookAction extends SuperAction {
 	private BookService bookservice;
@@ -34,5 +35,4 @@ public class BookAction extends SuperAction {
 		}
 		return SUCCESS;
 	}
-
 }
