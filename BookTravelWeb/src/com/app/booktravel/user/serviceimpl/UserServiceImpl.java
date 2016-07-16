@@ -8,6 +8,7 @@ import com.app.booktravel.user.action.bean.UserLoginResult;
 import com.app.booktravel.user.dao.TopicDAO;
 import com.app.booktravel.user.dao.UserDAO;
 import com.app.booktravel.user.model.Book;
+import com.app.booktravel.user.model.Bookreview;
 import com.app.booktravel.user.model.Mybook;
 import com.app.booktravel.user.model.Topic;
 import com.app.booktravel.user.model.User;
@@ -86,6 +87,13 @@ public class UserServiceImpl implements UserService {
 	public boolean addTopic(Topic t) {
 		// TODO Auto-generated method stub
 		return userdao.addTopic(t);
+	}
+
+	@Override
+	@Transactional(rollbackFor = { Exception.class })
+	public boolean addBookreview(Bookreview r) {
+		// TODO Auto-generated method stub
+		return userdao.addBookreview(r);
 	}
 
 }

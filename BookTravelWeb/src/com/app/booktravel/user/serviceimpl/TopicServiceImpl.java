@@ -1,8 +1,12 @@
 package com.app.booktravel.user.serviceimpl;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.app.booktravel.user.action.bean.QueryTopicDetailsResult;
 import com.app.booktravel.user.action.bean.QueryTopicsResult;
 import com.app.booktravel.user.dao.TopicDAO;
+import com.app.booktravel.user.model.Comment;
+import com.app.booktravel.user.model.Praise;
 import com.app.booktravel.user.model.Topic;
 import com.app.booktravel.user.service.TopicService;
 
@@ -44,9 +48,37 @@ public class TopicServiceImpl implements TopicService {
 	}
 
 	@Override
+	@Transactional(rollbackFor = { Exception.class })
 	public boolean addTopic(Topic t) {
 		// TODO Auto-generated method stub
 		return topicdao.addTopic(t);
+	}
+
+	@Override
+	public Topic FindTopicById(int topicid) {
+		// TODO Auto-generated method stub
+		return topicdao.FindTopicById(topicid);
+	}
+
+	@Override
+	@Transactional(rollbackFor = { Exception.class })
+	public boolean deleteTopic(Topic topic) {
+		// TODO Auto-generated method stub
+		return topicdao.deleteTopic(topic);
+	}
+
+	@Override
+	@Transactional(rollbackFor = { Exception.class })
+	public boolean deleteComment(Comment comment) {
+		// TODO Auto-generated method stub
+		return topicdao.deleteComment(comment);
+	}
+
+	@Override
+	@Transactional(rollbackFor = { Exception.class })
+	public boolean deletePraise(Praise praise) {
+		// TODO Auto-generated method stub
+		return topicdao.deletePraise(praise);
 	}
 
 }

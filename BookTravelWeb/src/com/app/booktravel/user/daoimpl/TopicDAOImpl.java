@@ -14,6 +14,8 @@ import com.app.booktravel.user.action.bean.QueryTopicsResult;
 import com.app.booktravel.user.action.bean.UserLoginResult;
 import com.app.booktravel.user.dao.TopicDAO;
 import com.app.booktravel.user.model.Book;
+import com.app.booktravel.user.model.Comment;
+import com.app.booktravel.user.model.Praise;
 import com.app.booktravel.user.model.Topic;
 import com.app.booktravel.user.model.User;
 
@@ -105,5 +107,37 @@ public class TopicDAOImpl extends HibernateDaoSupport implements TopicDAO {
 		// TODO Auto-generated method stub
 		getHibernateTemplate().save(t);
 		return true;
+	}
+
+	@Override
+	public Topic FindTopicById(int topicid) {
+		// TODO Auto-generated method stub
+		String sql = "from Topic where topicid=?";
+		List<Topic> list = (List<Topic>) getHibernateTemplate()
+				.find(sql, topicid);
+		if (list.size() == 0)
+			return null;
+		return list.get(0);
+	}
+
+	@Override
+	public boolean deleteTopic(Topic topic) {
+		// TODO Auto-generated method stub
+		getHibernateTemplate().delete(topic);
+		return true;
+	}
+
+	@Override
+	public boolean deleteComment(Comment comment) {
+		// TODO Auto-generated method stub
+		getHibernateTemplate().delete(comment);
+		return false;
+	}
+
+	@Override
+	public boolean deletePraise(Praise praise) {
+		// TODO Auto-generated method stub
+		getHibernateTemplate().delete(praise);
+		return false;
 	}
 }

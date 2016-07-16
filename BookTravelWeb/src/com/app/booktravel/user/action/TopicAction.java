@@ -98,4 +98,18 @@ public class TopicAction extends SuperAction {
 			return SUCCESS;
 		}
 	}
+	
+	public String DeleteTopic() {
+		String topicid = ServletActionContext.getRequest().getParameter(
+				"topicid");
+		Topic topic = topicservice.FindTopicById(Integer.valueOf(topicid));
+		boolean res = topicservice.deleteTopic(topic);
+		if(res){
+			result.setCode(200);//É¾³ý³É¹¦
+		}else{
+			result.setCode(100);//É¾³ýÊ§°Ü
+		}
+		return SUCCESS;
+		
+	}
 }

@@ -16,9 +16,9 @@ public class MybookServiceImpl implements MybookService {
 
 	@Override
 	@Transactional(rollbackFor = { Exception.class })
-	public boolean deleteOneCollectionBook(Mybook mybook) {
+	public boolean deleteOneOfMyBook(Mybook mybook) {
 		// TODO Auto-generated method stub
-		return mybookdao.deleteOneCollectionBook(mybook);
+		return mybookdao.deleteOneOfMyBook(mybook);
 	}
 
 	@Override

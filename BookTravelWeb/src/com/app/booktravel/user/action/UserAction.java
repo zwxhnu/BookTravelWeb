@@ -17,6 +17,7 @@ import com.app.booktravel.user.action.bean.QueryMyTopicsResult;
 import com.app.booktravel.user.action.bean.QueryPersonalResult;
 import com.app.booktravel.user.action.bean.UserLoginResult;
 import com.app.booktravel.user.model.Book;
+import com.app.booktravel.user.model.Bookreview;
 import com.app.booktravel.user.model.Mybook;
 import com.app.booktravel.user.model.Topic;
 import com.app.booktravel.user.model.User;
@@ -127,8 +128,8 @@ public class UserAction extends SuperAction {
 			List<User> users = new ArrayList<User>();
 			List<Topic> topics = res.getTopics();
 			for (Topic topic : topics) {
-				books.add(userservice.QueryBookById(topic.getBook()));
-				users.add(userservice.QueryUserById(topic.getUser()));
+				books.add(userservice.QueryBookById(topic.getBookId()));
+				users.add(userservice.QueryUserById(topic.getUserId()));
 			}
 			res.setBooks(books);
 			res.setUsers(users);
@@ -219,6 +220,10 @@ public class UserAction extends SuperAction {
 		}
 		String phone = request.getParameter("userphone");
 		String bookid = request.getParameter("bookid");
+		System.out.println("userphone:"+phone);
+		System.out.println("bookid:"+bookid);
+		System.out.println("subject:"+subject);
+		System.out.println("content:"+content);
 		Topic topic = new Topic();
 		topic.setUser(userservice.findUserByPhone(phone));
 		topic.setBook(userservice.QueryBookById(Integer.valueOf(bookid)));
@@ -227,6 +232,7 @@ public class UserAction extends SuperAction {
 		Date date = new Date();       
 		Timestamp currenttime = new Timestamp(date.getTime());
 		topic.setTime(currenttime);
+		System.out.println("TOPIC");
 		result = new Result();
 		if (userservice.addTopic(topic)) {
 			System.out.println("发表话题成功");
@@ -238,4 +244,36 @@ public class UserAction extends SuperAction {
 			return SUCCESS;
 		}
 	}
+	
+	public String AddBookreview() {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		String content = null;
+		try {
+			content = new String(request.getParameter("content").getBytes(
+					"ISO8859-1"), "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String phone = request.getParameter("userphone");
+		String bookid = request.getParameter("bookid");
+		
+		Bookreview bookreview = new Bookreview();
+		bookreview.setUser(userservice.findUserByPhone(phone));
+		bookreview.setBook(userservice.QueryBookById(Integer.valueOf(bookid)));
+		bookreview.setContent(content);
+		Date date = new Date();       
+		Timestamp currenttime = new Timestamp(date.getTime());
+		bookreview.setTime(currenttime);
+		result = new Result();
+		if (userservice.addBookreview(bookreview)) {
+			System.out.println("发表书评成功");
+			result.setCode(200);
+			return SUCCESS;
+		} else {
+			System.out.println("发表书评失败");
+			result.setCode(500);
+			return SUCCESS;
+		}
+		}
 }

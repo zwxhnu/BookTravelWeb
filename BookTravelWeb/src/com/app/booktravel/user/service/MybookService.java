@@ -4,7 +4,7 @@ import com.app.booktravel.user.model.Mybook;
 import com.app.booktravel.user.model.User;
 
 public interface MybookService {
-	public boolean deleteOneCollectionBook(Mybook mybook);
+	public boolean deleteOneOfMyBook(Mybook mybook);
 	
 	public Mybook findMyBookByUserId(int userid);
 	

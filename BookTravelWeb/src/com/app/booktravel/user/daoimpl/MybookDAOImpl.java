@@ -16,7 +16,7 @@ import com.app.booktravel.user.service.MybookService;
 public class MybookDAOImpl extends HibernateDaoSupport implements MybookDAO {
 
 	@Override
-	public boolean deleteOneCollectionBook(Mybook mybook) {
+	public boolean deleteOneOfMyBook(Mybook mybook) {
 		// TODO Auto-generated method stub
 		getHibernateTemplate().update(mybook);
 		return true;

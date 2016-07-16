@@ -15,9 +15,11 @@ public class MybookAction extends SuperAction {
 		this.mybookservice = mybookservice;
 	}
 
-	public String DeleteOneCollectionBook() {
+	public String DeleteOneOfMyBook() {
 		String userid = ServletActionContext.getRequest().getParameter(
 				"userid");
+		String mybooktype = ServletActionContext.getRequest().getParameter(
+				"mybooktype");
 		String isbn = ServletActionContext.getRequest().getParameter(
 				"isbn");
 		System.out.println("userid:"+userid);
@@ -27,38 +29,68 @@ public class MybookAction extends SuperAction {
 		if(mybook == null) System.out.println("没有找到mybook");
 		else System.out.println("返回mybook:"+mybook.getMybookid());
 		
-		String collection=mybook.getCollection();
-		String newcollection=collection;
-		int index = collection.indexOf(isbn);
-		if(collection.indexOf("、")!=-1) {//收藏不只一本图书
-		if(index==-1){
-			System.out.println("未收藏该图书");
-		}
-		else if(index==0){
-			newcollection=collection.substring(isbn.length()+1);
-			System.out.println(newcollection);
-		}
-		else {
-		String s1=collection.substring(0, index-1);
-		String s2=collection.substring(index+isbn.length(), collection.length());
-		newcollection=s1+s2;
-		System.out.println(newcollection);
-		}
-		}
-		else //收藏只有一本图书
-		{
-			if(index==-1){
-				System.out.println("未收藏该图书");
+		if(mybooktype.equals("collection")) {
+			String collection=mybook.getCollection();
+			if(collection==null||collection=="") {
+				result.setCode(500);//没有收藏图书，无法删除
+				return SUCCESS;
 			}
-			else if(index==0){
-			newcollection="";
-			System.out.println(newcollection);
+			String newcollection=collection;
+			if(delete(newcollection,collection,isbn)!=null)
+			newcollection=delete(newcollection,collection,isbn);
+			else {
+				result.setCode(500);//没有该图书，无法删除
+				return SUCCESS;
 			}
+			mybook.setCollection(newcollection);
 		}
-		
-		mybook.setCollection(newcollection);
+		else if(mybooktype.equals("reading")) {
+			String reading=mybook.getReading();
+			if(reading==null||reading=="") {
+				result.setCode(500);//没有该图书，无法删除
+				return SUCCESS;
+			}
+			String newreading=reading;
+			if(delete(newreading,reading,isbn)!=null)
+			newreading=delete(newreading,reading,isbn);
+			else {
+				result.setCode(500);//没有该图书，无法删除
+				return SUCCESS;
+			}
+			mybook.setReading(newreading);
+		}
+		else if(mybooktype.equals("readed")) {
+			String readed=mybook.getReaded();
+			if(readed==null||readed=="") {
+				result.setCode(500);//没有该图书，无法删除
+				return SUCCESS;
+			}
+			String newreaded=readed;
+			if(delete(newreaded,readed,isbn)!=null)
+			newreaded=delete(newreaded,readed,isbn);
+			else {
+				result.setCode(500);//没有该图书，无法删除
+				return SUCCESS;
+			}
+			mybook.setReaded(newreaded);
+		}
+		else if(mybooktype.equals("toevaluate")) {
+			String toevaluate=mybook.getToevaluate();
+			if(toevaluate==null||toevaluate=="") {
+				result.setCode(500);//没有该图书，无法删除
+				return SUCCESS;
+			}
+			String newtoevaluate=toevaluate;
+			if(delete(newtoevaluate,toevaluate,isbn)!=null)
+			newtoevaluate=delete(newtoevaluate,toevaluate,isbn);
+			else {
+				result.setCode(500);//没有该图书，无法删除
+				return SUCCESS;
+			}
+			mybook.setToevaluate(newtoevaluate);
+		}
 
-		boolean res = mybookservice.deleteOneCollectionBook(mybook);
+		boolean res = mybookservice.deleteOneOfMyBook(mybook);
 		if(res){
 			result.setCode(200);//删除成功
 		}else{
@@ -66,6 +98,38 @@ public class MybookAction extends SuperAction {
 		}
 		
 		return SUCCESS;
+	}
+	
+	private String delete(String newstr, String str,String isbn) {
+		int index = str.indexOf(isbn);
+		if(str.indexOf("、")!=-1) {//收藏不只一本图书
+		if(index==-1){
+			System.out.println("没有该图书");
+			return null;
+		}
+		else if(index==0){
+			newstr=str.substring(isbn.length()+1);
+			System.out.println(newstr);
+		}
+		else {
+		String s1=str.substring(0, index-1);
+		String s2=str.substring(index+isbn.length(), str.length());
+		newstr=s1+s2;
+		System.out.println(newstr);
+		}
+		}
+		else //收藏只有一本图书
+		{
+			if(index==-1){
+				System.out.println("没有该图书");
+				return null;
+			}
+			else if(index==0){
+			newstr="";
+			System.out.println(newstr);
+			}
+		}
+		return newstr;
 	}
 	
 	public String AddMyBook() {

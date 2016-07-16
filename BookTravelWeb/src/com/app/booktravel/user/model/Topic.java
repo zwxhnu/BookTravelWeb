@@ -51,16 +51,24 @@ public class Topic implements java.io.Serializable {
 		this.topicid = topicid;
 	}
 
-	public int getUser() {
+	public int getUserId() {
 		return this.user.getUserid();
+	}
+	
+	public User getUser() {
+		return this.user;
 	}
 
 	public void setUser(User user) {
 		this.user = user;
 	}
 
-	public int getBook() {
+	public int getBookId() {
 		return this.book.getBookid();
+	}
+	
+	public Book getBook() {
+		return this.book;
 	}
 
 	public void setBook(Book book) {

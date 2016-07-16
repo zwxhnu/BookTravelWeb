@@ -3,6 +3,8 @@ package com.app.booktravel.user.dao;
 import com.app.booktravel.user.action.bean.QueryMyTopicsResult;
 import com.app.booktravel.user.action.bean.QueryTopicDetailsResult;
 import com.app.booktravel.user.action.bean.QueryTopicsResult;
+import com.app.booktravel.user.model.Comment;
+import com.app.booktravel.user.model.Praise;
 import com.app.booktravel.user.model.Topic;
 
 public interface TopicDAO {
@@ -17,4 +19,12 @@ public interface TopicDAO {
 	public int CountCommentNumByTopicId(int topicid);
 	
 	public boolean addTopic(Topic t);
+	
+	public Topic FindTopicById(int topicid);
+	
+	public boolean deleteTopic(Topic topic);
+	
+	public boolean deleteComment(Comment comment);
+	
+	public boolean deletePraise(Praise praise);
 }

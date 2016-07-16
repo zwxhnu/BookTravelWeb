@@ -58,14 +58,26 @@
 			</result>
 		</action>
 		
-		<action name="DeleteOneCollectionBook" class="MybookAction"
-			method="DeleteOneCollectionBook">
+		<action name="DeleteOneOfMyBook" class="MybookAction"
+			method="DeleteOneOfMyBook">
 			<result type="json">
 				<param name="root">result</param>
 			</result>
 		</action>
 		<action name="AddMyBook" class="MybookAction"
 			method="AddMyBook">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="AddBookreview" class="UserAction"
+			method="AddBookreview">
+			<result type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="DeleteTopic" class="TopicAction"
+			method="DeleteTopic">
 			<result type="json">
 				<param name="root">result</param>
 			</result>
